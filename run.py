@@ -2,7 +2,8 @@ import sys, os
 
 sys.path.insert(0, os.path.split(os.path.abspath(__file__))[0])
 
-from lassgdk import app, config
+from lassgdk import app as application
+from lassgdk import config
 
 class Middleware(object):
     def __init__(self, app):
@@ -11,7 +12,7 @@ class Middleware(object):
         environ['SCRIPT_NAME'] = config.environ
         return self.app(environ, start_response)
 
-app.wsgi_app = Middleware(app.wsgi_app)
+application.wsgi_app = Middleware(application.wsgi_app)
 
 if __name__ == "__main__":
     app.run(debug=True)
