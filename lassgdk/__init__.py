@@ -5,4 +5,4 @@ app.config.from_pyfile("config.py")
 
 @app.route("/")
 def index():
-    return "hello, world"
+    return "testing git pushing"
